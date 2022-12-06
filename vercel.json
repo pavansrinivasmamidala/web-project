@@ -2,9 +2,9 @@
     "version": 1,
     "name": "webproject",
     "builds": [
-       { "src": "gpt.js", "use": "@vercel/node" }
+       { "src": "/gpt.js", "use": "@vercel/node" }
     ],
     "routes": [
        { "src": "/(.*)", "dest": "/gpt.js" }
     ]
- }
+}
