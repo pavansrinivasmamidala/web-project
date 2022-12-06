@@ -1,0 +1,45 @@
+{{!-- restaurant-list.hbs --}}
+<h1>Restaurant List</h1>
+
+{{!-- display a table of restaurants --}}
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Cuisine</th>
+      <th>Borough</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each restaurants}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.cuisine}}</td>
+        <td>{{this.borough}}</td>
+        <td>
+          {{!-- create a link to the edit view for the restaurant --}}
+          <a href="/restaurants/{{this._id}}/edit">Edit</a>
+          {{!-- create a form for deleting the restaurant --}}
+          <form action="/restaurants/{{this._id}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{!-- display pagination buttons --}}
+<div>
+  {{!-- create a "previous" button if the current page is not the first page --}}
+  {{#if page > 1}}
+    <a href="/restaurants?page={{page - 1}}">Previous</a>
+  {{/if}}
+
+  {{!-- create a "next" button if the current page is not the last page --}}
+  {{#if page < totalPages}}
+    <a href="/restaurants?page={{page + 1}}">Next</a>
+  {{/if}}
+</div>

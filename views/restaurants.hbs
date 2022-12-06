@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurants</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+  <h1>Restaurants</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Cuisine</th>
+        <th>Borough</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each restaurants}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{cuisine}}</td>
+        <td>{{borough}}</td>
+        <td>
+          <a href="{{editUrl}}">Edit</a>
+          <a href="{{deleteUrl}}">Delete</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    {{#if prevPage}}
+    <a href="{{prevPage}}">Previous</a>
+    {{/if}}
+
+    <span>Page {{page}} of {{totalPages}}</span>
+
+    {{#if nextPage}}
+    <a href="{{nextPage}}">Next</a>
+    {{/if}}
+  </div>
+</body>
+</html>
