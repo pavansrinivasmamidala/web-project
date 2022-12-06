@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Restaurant List</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <h1>Restaurant List</h1>
+    <ul class="restaurant-list">
+      {{#each restaurants}}
+        <div class="restaurant-list__item">
+          <h2>{{name}}</h2>
+          <p>Cuisine: {{cuisine}}</p>
+          <p>Borough: {{borough}}</p>
+          <a href="/restaurants/{{_id}}/edit">Edit</a>
+          <!-- HTML for the restaurant delete form -->
+          <form action="/restaurants/{{_id}}" method="post">
+            <!-- Hidden input field with the restaurant ID -->
+            <input type="hidden" name="_method" value="DELETE" />
+
+            <!-- Submit button for the form -->
+            <button type="submit">Delete</button>
+          </form>
+
+        </div>
+      {{/each}}
+    </ul>
+  </body>
+</html>

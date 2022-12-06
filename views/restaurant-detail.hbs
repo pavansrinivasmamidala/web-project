@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Restaurant Detail</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <h1>Restaurant Detail</h1>
+    <div class="restaurant-detail">
+
+      <div class="restaurant-detail__info">
+        <p><span class="restaurant-detail__info-label">Name:</span> {{restaurant.name}}</p>
+        <p><span class="restaurant-detail__info-label">Cuisine:</span> {{restaurant.cuisine}}</p>
+        <p><span class="restaurant-detail__info-label">Borough:</span> {{restaurant.borough}}</p>
+        <p><span class="restaurant-detail__info-label">Address:</span> {{restaurant.address.building}}, {{restaurant.address.street}}, {{restaurant.address.zipcode}}</p>
+      </div>
+      <a href="/restaurants/{{restaurant._id}}/edit">Edit Restaurant</a>
+      <a href="/restaurants"> All Restaurants</a>
+    </div>
+  </body>
+</html>
+

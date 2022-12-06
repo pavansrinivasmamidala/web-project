@@ -1,0 +1,65 @@
+<style>
+.restaurant-edit-columns{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.restaurant-edit-column{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.restaurant-edit-label{
+  font-size: large;
+  font: bold;
+}
+
+.restaurant-edit-input{
+  height: 40px;
+  font: large;
+}
+
+.restaurant-edit-button{
+  font: bold;
+  justify-content: center;
+  text-align: center;
+  height: 40px;
+  font-size: large;
+  cursor: pointer;
+}
+
+
+
+</style>
+<!-- HTML for the restaurant edit form -->
+<div class="restaurant-edit">
+  <form action="/restaurants/{{restaurant._id}}" method="put" enctype="text/plain">
+
+    <!-- Input fields for the restaurant data, in columns -->
+    <div class="restaurant-edit-columns">
+      <div class="restaurant-edit-column">
+        <!-- Label and input for the restaurant name -->
+        <label for="name" class="restaurant-edit-label">Name:</label>
+        <input type="text" id="name" name="name" value="{{restaurant.name}}" class="restaurant-edit-input">
+      </div>
+
+      <div class="restaurant-edit-column">
+        <!-- Label and input for the restaurant cuisine -->
+        <label for="cuisine" class="restaurant-edit-label">Cuisine:</label>
+        <input type="text" id="cuisine" name="cuisine" value="{{restaurant.cuisine}}" class="restaurant-edit-input">
+      </div>
+
+      <div class="restaurant-edit-column">
+        <!-- Label and input for the restaurant borough -->
+        <label for="borough" class="restaurant-edit-label">Borough:</label>
+        <input type="text" id="borough" name="borough" value="{{restaurant.borough}}" class="restaurant-edit-input">
+      </div>
+    </div>
+
+    <!-- Submit button for the form -->
+    <button type="submit" class="restaurant-edit-button">Save</button>
+  </form>
+</div>
